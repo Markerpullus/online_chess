@@ -1,11 +1,12 @@
 import pygame, socket, threading
 from .piece import Piece
+from .ip import server_ip, server_port
 
 class Game():
     def __init__(self, win, player):
         self.socket = socket.socket()
-        self.server_ip = '192.168.1.105'
-        self.server_port = 1234
+        self.server_ip = server_ip
+        self.server_port = server_port
         print(f'Trying to connect to server at {self.server_ip}')
         self.socket.connect((self.server_ip, self.server_port))
         print('Connected')
