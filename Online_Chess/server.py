@@ -1,7 +1,8 @@
 import socket, select
+from imports.ip import server_ip, server_port
 
-IP = "192.168.1.105"
-PORT = 1234
+IP = server_ip
+PORT = server_port
 server_socket = socket.socket()
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind((IP, PORT))
