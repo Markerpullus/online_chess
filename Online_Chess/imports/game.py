@@ -65,6 +65,11 @@ class Game():
     def move_piece(self, piece, new_pos):
         type = self.board[piece.y][piece.x]
         self.board[piece.y][piece.x] = 0
+        if self.turn == self.player:
+            print(f'You moved {piece.ptype[piece.type]} from ({piece.x}, {piece.y}) to ({new_pos[0]}, {new_pos[1]})')
+        else:
+            player = 'White' if self.player == 1 else 'Black' 
+            print(f'{player} moved {piece.ptype[piece.type]} from ({piece.x}, {piece.y}) to ({new_pos[0]}, {new_pos[1]})')
         piece.x = new_pos[0]
         piece.y = new_pos[1]
         for Piece in self.pieces:
@@ -97,6 +102,7 @@ class Game():
                     if piece.player == 1 and piece.type == 6:
                         return
                 self.game_result = 'White won'
+                return
         self.game_result = 'Black won'
     
     def draw_game_result(self):
